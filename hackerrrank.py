@@ -3,6 +3,7 @@ import os
 import random
 import re
 import sys
+import textwrap
 
 # Write a Function
 def is_leap(year):
@@ -26,6 +27,48 @@ def swap_case(s):
             string+=(i.upper())
 
     return string
+
+# String Split and Join
+def split_and_join(line):
+    line = line.split(' ')
+    line = '-'.join(line)
+    return line
+
+# What's your Name
+def print_full_name(first, last):
+    print("Hello " + first + " " + last + "! You just delved into python.")
+
+# Mutations
+def mutate_string(string, position, character):
+    string =  list(string)
+    string [position] = character
+    string = ''.join(string)
+    return string
+
+# Find a String
+def count_substring(string, sub_string):
+    total = 0
+
+    for i in range (len(string)):
+        if string[i:len(string)].startswith(sub_string):
+            total +=1
+    return total
+
+# Text Wrap
+def wrap(string, max_width):
+    return textwrap.fill(string, max_width)
+
+# String Formatting
+def print_formatted(number):
+    width = len(bin(number)[2:])
+    for i in range (1, number+1):
+        deci = str(i)
+        octa = oct(i)[2:]
+        hexa = hex(i)[2:].upper()
+        bina = bin(i)[2:]
+        print(deci.rjust(width),octa.rjust(width),hexa.rjust(width),bina.rjust(width))
+
+    # your code goes here
 
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
@@ -146,7 +189,59 @@ if __name__ == '__main__':
     # print(hash(t))
 
     #sWAP cASE
-    s = input()
-    result = swap_case(s)
-    print(result)
+    # s = input()
+    # result = swap_case(s)
+    # print(result)
+
+    # String Split and Join
+    # line = input()
+    # result = split_and_join(line)
+    # print(result)
+
+    # What's your Name
+    # first_name = input()
+    # last_name = input()
+    # print_full_name(first_name, last_name)
+
+    # Mutations
+    # s = input()
+    # i, c = input().split()
+    # s_new = mutate_string(s, int(i), c)
+    # print(s_new)
+
+    # Find a String
+    # string = input().strip()
+    # sub_string = input().strip()
+    # count = count_substring(string, sub_string)
+    # print(count)
+
+    # String Validators
+    # s = input()
+    # print (any(i.isalnum() for i in s) )
+    # print (any(i.isalpha() for i in s) )
+    # print (any(i.isdigit() for i in s) )
+    # print (any(i.islower() for i in s) )
+    # print (any(i.isupper() for i in s) )
+
+    # Text Alignment
+
+    # Text Wrap
+    # string, max_width = input(), int(input())
+    # result = wrap(string, max_width)
+    # print(result)
+
+    # Designer Door Mat
+    # n, m = map(int,input().split())
+    # for i in range(n//2):
+    #     j = int((2*i)+1)
+    #     print(('.|.'*j).center(m, '-'))
+    # print('WELCOME'.center(m,'-'))
+    # for i in reversed(range(n//2)):
+    #     j = int((2*i)+1)
+    #     print(('.|.'*j).center(m, '-'))
+
+    # String Formatting 
+    n = int(input())
+    print_formatted(n)
+
 
