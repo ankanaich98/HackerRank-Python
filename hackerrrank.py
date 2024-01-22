@@ -14,6 +14,18 @@ def is_leap(year):
         leap = True
     return leap
 
+# sWAP cASE
+def swap_case(s):
+    string = ""
+
+    for i in s:
+        if i.isupper() == True:
+            string+=(i.lower())
+        else:
+
+            string+=(i.upper())
+
+    return string
 
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
@@ -81,18 +93,60 @@ if __name__ == '__main__':
     # print('\n'.join(sorted([name for name, score in all_list if score == second_lowest])))
 
     # Finding the Percentage 
-    n = int(input())
-    student_marks = {}
+    # n = int(input())
+    # student_marks = {}
 
-    for _ in range(n):
-        name, *line = input().split()
-        scores = list(map(float, line))
-        student_marks[name] = scores
+    # for _ in range(n):
+    #     name, *line = input().split()
+    #     scores = list(map(float, line))
+    #     student_marks[name] = scores
 
-    query_name = input()
-    student = list(student_marks[query_name]) 
-    addition = sum(student)
-    result = addition/len(student)
-    print('%.2f'% result)
+    # query_name = input()
+    # student = list(student_marks[query_name]) 
+    # addition = sum(student)
+    # result = addition/len(student)
+    # print('%.2f'% result)
 
+    # Lists
+    # N = int(input())
+    # List = [] 
+    # for i in range (N):
+    #     command = input().split()
+
+    #     if command[0] == "insert":
+    #         List.insert(int(command[1]),int(command[2]))
+        
+    #     elif command[0] == "append":
+    #         List.append(int(command[1]))
+        
+    #     elif command[0] == "pop":
+
+    #         List.pop();
+
+    #     elif command[0] == "print":
+
+    #         print(List)
+
+    #     elif command[0] == "remove":
+
+    #         List.remove(int(command[1]))
+
+    #     elif command[0] == "sort":
+
+    #         List.sort();
+
+    #     else:
+
+    #         List.reverse();
+
+    # Tuples
+    # n = int(input())
+    # integer_list = map(int, input().split())
+    # t = tuple(integer_list)
+    # print(hash(t))
+
+    #sWAP cASE
+    s = input()
+    result = swap_case(s)
+    print(result)
 
