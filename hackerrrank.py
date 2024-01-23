@@ -70,6 +70,28 @@ def print_formatted(number):
 
     # your code goes here
 
+# Capitalize!
+def solve(s):
+    s = s.split(' ')
+    answer = (i.capitalize() for i in s)
+    return ' '.join(answer)
+
+# Minion Game
+def minion_game(string):
+    n = len(string)
+    comb = ((n)*(n+1))/2
+    count_kevin = 0
+    count_stuart = 0
+    count_kevin = sum([len(string[i:]) for i in range(len(string)) if string[i] in "AEIOU"])
+    count_stuart = comb - count_kevin
+    
+    if count_stuart == count_kevin:
+        print("Draw")
+    elif count_stuart > count_kevin:
+        print("Stuart", int(count_stuart) )
+    else:
+        print("Kevin", int(count_kevin))
+
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
     # print("Hello, World!") 
@@ -241,7 +263,17 @@ if __name__ == '__main__':
     #     print(('.|.'*j).center(m, '-'))
 
     # String Formatting 
-    n = int(input())
-    print_formatted(n)
+    # n = int(input())
+    # print_formatted(n)
 
+    # Capitalize!
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    # s = input()
+    # result = solve(s)
+    # fptr.write(result + '\n')
+    # fptr.close()
+
+    # Minion Game
+    s = input()
+    minion_game(s)
 
