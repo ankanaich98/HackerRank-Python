@@ -92,6 +92,28 @@ def minion_game(string):
     else:
         print("Kevin", int(count_kevin))
 
+# Merge the Tools
+from collections import OrderedDict
+def merge_the_tools(string, k):
+    i = 0
+    while i < len(string):
+        word1 = "".join(OrderedDict.fromkeys(string[i: i+k]))      
+        print(word1)
+        i = i + k
+
+# Introduction to sets
+def average(array):
+    unique_numbers = set(array)
+    return (sum(unique_numbers)/len(unique_numbers))
+
+# Time delta
+from datetime import datetime
+def time_delta(t1,t2):
+    format = '%a %d %b %Y %H:%M:%S %z'
+    t1 = datetime.strptime(t1, format)
+    t2 = datetime.strptime(t2, format)
+    return str(int(abs((t1-t2).total_seconds()))) 
+
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
     # print("Hello, World!") 
@@ -274,6 +296,141 @@ if __name__ == '__main__':
     # fptr.close()
 
     # Minion Game
-    s = input()
-    minion_game(s)
+    # s = input()
+    # minion_game(s)
 
+    # Merge the Tools
+    # string, k = input(), int(input())
+    # merge_the_tools(string, k)
+
+    # itertools.product()
+    # from itertools import product
+    # A = list(map(int,input().split()))
+    # B = list(map(int,input().split()))
+    # print(*list(product(A,B))) # * is the unpacking operator
+
+    # collections.counter()
+    # from collections import Counter
+    # number_of_shoes = int(input())
+    # stock = Counter(map(int,input().split()))
+    # number_of_customers = int(input())
+    # total = 0
+    # for i in range (number_of_customers):
+    #     size, rate = map(int, input().split())
+    #     if stock[size]:
+    #         stock[size]-=1
+    #         total += rate
+    # print(total)
+
+    # itertools.permutations()
+    # from itertools import permutations
+    # string,p = input().split()
+    # for i in sorted(permutations(string,int(p))):
+    #     print(''.join(i))
+
+    # Polar coordinates
+    # import cmath
+    # string_number = input()
+    # string_number_to_complex= complex(string_number)
+    # print(abs(string_number_to_complex))         # r = distance from the complex number to the origin
+    # print(cmath.phase(string_number_to_complex)) # p = phase or the Counter clockwise angle measured from the positive x-axis to the line segment that joins the complex number to the origin.
+
+    # Introduction to Sets
+    # n = int(input())
+    # arr = list(map(int, input().split()))
+    # result = average(arr)
+    # print(result)
+
+    # DefaultDict Tutorial
+    # from collections import defaultdict
+    # input_n, input_m = map(int, input().split())
+    # d = defaultdict(list)
+    # for i in range(input_n):
+    #     A = input()
+    #     d[A].append(i+1)
+    # for j in range(input_m):
+    #     B = input()
+    #     if B in d:
+    #         print(*d[B])
+    #     else:
+    #         print(-1)
+
+    # Calendar Module
+    # import calendar
+    # month,day,year = list(map(int,input().split()))
+    # answer = calendar.weekday(year,month,day)
+    # print(calendar.day_name[answer].upper())
+
+    # Exceptions
+    # for i in range (int(input())):
+    #     try:
+    #         A, B = map(int,input().split())
+    #         print(A//B)
+    #     except Exception as e:
+    #         print ("Error Code:",e)
+
+    # Collections.namedtuple()
+    # from collections import namedtuple
+    # total_rows = int(input())
+    # column_names = input().split()
+    # total_marks = 0
+    # for _ in range(total_rows):
+    #     students = namedtuple('student',column_names)
+    #     MARKS, CLASS, NAME, ID = input().split()
+    #     student = students(MARKS, CLASS, NAME, ID)
+    #     total_marks += int(student.MARKS)
+    # print(total_marks/total_rows)
+
+    # Time Delta
+    # fptr = open(os.environ['OUTPUT_PATH'], 'w')
+    # t = int(input())
+    # for t_itr in range(t):
+    #     t1 = input()
+    #     t2 = input()
+    #     delta = time_delta(t1, t2)
+    #     fptr.write(delta + '\n')
+    # fptr.close()
+
+    # Find Angle MBC
+    # from math import degrees, atan2
+    # AB = float(input())
+    # BC = float(input())
+    # MBC = round(degrees(atan2(AB, BC)))
+    # print((str(MBC)), chr(176), sep='')
+
+    # No Idea!
+    # n, m = map(int, input().split())
+    # elements_array = list(map(int, input().split()))
+    # happiness = 0
+    # A = set(map(int,input().split()))
+    # B = set(map(int,input().split()))
+    # for i in elements_array:
+    #     if i in A:
+    #         happiness +=1
+    #     elif i in B:
+    #         happiness -=1
+    # print(happiness)
+
+    #Collections.OrderedDict()
+    # from collections import OrderedDict
+    # times = int(input())
+    # dictionary = OrderedDict()
+    # for i in range (times):
+    #     item, space, price = input().rpartition(' ') #This is useful for cases where you want to extract information from a string where the information is separated by a specific character (in this case, a space).
+    #     dictionary[item] = dictionary.get(item, 0) + int(price) 
+    # for item, price in dictionary.items():
+    #     print(item, price)
+
+    # Symmetric Difference
+    M = int(input())
+    set_A = set(map(int,input().split()))
+    N = int(input())
+    set_B = set(map(int,input().split()))
+    A = (set_A.difference(set_B))
+    B = (set_B.difference(set_A))
+    answer = A.union(B)
+    for i in sorted(answer):
+        print(i)
+
+
+    
