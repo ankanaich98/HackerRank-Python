@@ -422,15 +422,150 @@ if __name__ == '__main__':
     #     print(item, price)
 
     # Symmetric Difference
-    M = int(input())
-    set_A = set(map(int,input().split()))
-    N = int(input())
-    set_B = set(map(int,input().split()))
-    A = (set_A.difference(set_B))
-    B = (set_B.difference(set_A))
-    answer = A.union(B)
-    for i in sorted(answer):
-        print(i)
+    # M = int(input())
+    # set_A = set(map(int,input().split()))
+    # N = int(input())
+    # set_B = set(map(int,input().split()))
+    # A = (set_A.difference(set_B))
+    # B = (set_B.difference(set_A))
+    # answer = A.union(B)
+    # for i in sorted(answer):
+    #     print(i)
+
+    # itertools.combinations()
+    # from itertools import combinations
+    # word,c = input().split()
+    # c = int(c)
+    # for i in range (1,c+1):
+    #     for j in combinations(sorted(word), i):
+    #         print (''.join(j))
+
+    # Incorrect Regex
+    # import re
+    # times = int(input())
+    # for i in range(times):
+    #     try:
+    #         pattern = input()
+    #         answer = (re.compile(pattern))
+    #         print(bool(answer))
+    #     except re.error:
+    #         print('False')
+
+    # Set.add()
+    # total_stamps = int(input())
+    # stamps = set()
+    # for i in range(total_stamps):
+    #     stamps.add(input())
+    # print(len(stamps))
+
+    # itertools.combinations_with_replacement()
+    # from itertools import combinations_with_replacement
+    # word , c = input().split()
+    # c = int(c)
+    # list = (combinations_with_replacement(sorted(word),c))
+    # for l in list:
+    #     print(''.join(l))
+
+    # Word Order
+    # from collections import Counter
+    # times = int(input())
+    # list = [input().strip() for i in range(times)]
+    # answer = Counter(list)
+    # print(len(answer))
+    # print(*answer.values())
+
+    # set.discard, remove, pop
+    # total_numbers = int(input())
+    # numbers = list(map(int,input().split()))
+    # numbers.reverse()                        # pypy3 pop is different from python3, as pypy3 will pop the last element and python3 the first
+    # numbers = set(numbers)
+    # command_number = int(input())
+    # for i in range (command_number):
+    #     command = list(map(str,input().split()))
+    #     if command[0] == "pop":
+    #         numbers.pop()
+    #     elif command[0] == "remove":
+    #         try:
+    #             numbers.remove(int(command[1]))
+    #         except:
+    #             continue
+    #     elif command[0] == "discard":
+    #         try:
+    #             numbers.discard(int(command[1]))
+    #         except:
+    #             continue 
+    # print(sum(numbers))
+
+    # Collections.deque()
+    # from collections import deque
+    # times = int(input())
+    # deque = deque()
+    # for i in range(times):
+    #     command = list(map(str,input().split()))
+    #     if command[0] == 'append':
+    #         deque.append(int(command[1]))
+    #     elif command[0] == 'appendleft':
+    #         deque.appendleft(int(command[1]))
+    #     deque.reverse 
+    #     if command[0] == 'pop':
+    #         deque.pop()
+    #     elif command [0] == 'popleft':
+    #         deque.popleft()
+    # print(' '.join(map(str,deque)))
+
+    # Compress the string
+    # from itertools import groupby
+    # for k, c in groupby(input()):
+    #     print("(%d, %d)" % (len(list(c)), int(k)), end=' ')
+
+    # Company Logo - new concept
+    # from collections import Counter, OrderedDict
+    # class OrderedCounter(Counter, OrderedDict):
+    #     pass
+    # word = input()
+    # [print(*c) for c in OrderedCounter(sorted(word)).most_common(3)]
+
+    # Set.union() operation
+    # english_subscriptions = int(input())
+    # english_roles = set(map(int,input().split()))
+    # french_subscriptions = int(input())
+    # french_roles = set(map(int,input().split()))
+    # answer_set = set(english_roles.union(french_roles))
+    # print(len(answer_set))
+
+    # Pilling Up!
+    # ANS = []
+    # times = int(input())
+    # for _ in range(times):
+    #     n = int(input())
+    #     sl = list(map(int, input().split()))
+    #     for _ in range(n-1):
+    #         if sl[0] >= sl[len(sl)-1]:
+    #             a = sl[0]
+    #             sl.pop(0)
+    #         elif sl[0] < sl[len(sl)-1]:
+    #             a = sl[len(sl)-1]
+    #             sl.pop(len(sl)-1)
+    #         else:
+    #             pass
+    #         if len(sl) == 1:
+    #             ANS.append("Yes")
+    #         if((sl[0] > a) or (sl[len(sl)-1] > a)):
+    #             ANS.append("No")
+    #             break
+    # print("\n".join(ANS))
+
+    # Triangle Quest 2
+    # for x in range(1,int(input())+1):
+    #     print(((111111111)%(10**x))**2)
+
+    # Iterables and Iterators
+    from itertools import combinations
+    list_size = int(input())
+    list_numbers = input().split()
+    c = int(input())
+    Combination = list(combinations(list_numbers,c))
+    Filtered = filter(lambda c: 'a' in c,Combination)
+    print((len(list(Filtered))/len(Combination)))
 
 
-    
