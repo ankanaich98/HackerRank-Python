@@ -114,6 +114,48 @@ def time_delta(t1,t2):
     t2 = datetime.strptime(t2, format)
     return str(int(abs((t1-t2).total_seconds()))) 
 
+# Classes: Dealing with Complex Numbers
+import math
+class Complex(object):
+    def __init__(self, real, imaginary):
+        self.real = real
+        self.imaginary = imaginary
+        
+    def __add__(self, no):
+        return Complex((self.real+no.real), self.imaginary+no.imaginary)
+    def __sub__(self, no):
+        return Complex((self.real-no.real), (self.imaginary-no.imaginary))
+    def __mul__(self, no):
+        r = (self.real*no.real)-(self.imaginary*no.imaginary)
+        i = (self.real*no.imaginary+no.real*self.imaginary)
+        return Complex(r, i)
+    def __truediv__(self, no):
+        conjugate = Complex(no.real, (-no.imaginary))
+        num = self*conjugate
+        denom = no*conjugate
+        try:
+            return Complex((num.real/denom.real), (num.imaginary/denom.real))
+        except Exception as e:
+            print(e)
+
+    def mod(self):
+        m = math.sqrt(self.real**2+self.imaginary**2)
+        return Complex(m, 0)
+
+    def __str__(self):
+        if self.imaginary == 0:
+            result = "%.2f+0.00i" % (self.real)
+        elif self.real == 0:
+            if self.imaginary >= 0:
+                result = "0.00+%.2fi" % (self.imaginary)
+            else:
+                result = "0.00-%.2fi" % (abs(self.imaginary))
+        elif self.imaginary > 0:
+            result = "%.2f+%.2fi" % (self.real, self.imaginary)
+        else:
+            result = "%.2f-%.2fi" % (self.real, abs(self.imaginary))
+        return result
+
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
     # print("Hello, World!") 
@@ -560,12 +602,132 @@ if __name__ == '__main__':
     #     print(((111111111)%(10**x))**2)
 
     # Iterables and Iterators
-    from itertools import combinations
-    list_size = int(input())
-    list_numbers = input().split()
-    c = int(input())
-    Combination = list(combinations(list_numbers,c))
-    Filtered = filter(lambda c: 'a' in c,Combination)
-    print((len(list(Filtered))/len(Combination)))
+    # from itertools import combinations
+    # list_size = int(input())
+    # list_numbers = input().split()
+    # c = int(input())
+    # Combination = list(combinations(list_numbers,c))
+    # Filtered = filter(lambda c: 'a' in c,Combination)
+    # print((len(list(Filtered))/len(Combination)))
+
+    # Set.intersection() Operation
+    # english_subscriptions = int(input())
+    # english_rolls = set(map(int,input().split()))
+    # french_subscriptions = int(input())
+    # french_rolls = set(map(int,input().split()))
+    # print(len(english_rolls.intersection(french_rolls)))
+
+    # Mod Divmod
+    # a = int(input())
+    # b = int(input())
+    # print(a//b)
+    # print(a%b)
+    # print(divmod(a,b))
+
+    # Power - Mod Power
+    # a = int(input())
+    # b = int(input())
+    # m = int(input())
+    # print(pow(a,b))
+    # print(pow(a,b,m))
+
+    # Maximize it!
+    # from itertools import product
+    # K,M = map(int,input().split())
+    # N = (list(map(int, input().split()))[1:] for _ in range(K))
+    # results = map(lambda x: sum(i**2 for i in x)%M, product(*N))
+    # print(max(results))
+
+    # Set.difference() operation
+    # english_subscriptions = int(input())
+    # english_rolls = set(map(int,input().split()))
+    # french_subscriptions = int(input())
+    # french_rolls = set(map(int,input().split()))
+    # print(len(english_rolls.difference(french_rolls)))
+
+    # Integers come in all sizes
+    # a = int(input())
+    # b = int(input())
+    # c = int(input())
+    # d = int(input())
+    # print(pow(a,b)+pow(c,d))
+
+    # Set.symmetric.difference() operation
+    # english_subscriptions = int(input())
+    # english_rolls = set(map(int,input().split()))
+    # french_subscriptions = int(input())
+    # french_rolls = set(map(int,input().split()))
+    # print(len(english_rolls.symmetric_difference(french_rolls)))
+
+    # Set Mutations
+    # element_number_A = input()
+    # numbers = set(map(int,input().split()))
+    # command_number = int(input())
+    # for i in range (command_number):
+    #     command = list(map(str,input().split()))
+    #     if command[0] == "intersection_update":
+    #         numbers.intersection_update(set(map(int,input().split())))
+    #     elif command[0] == "update":
+    #         numbers.update(set(map(int,input().split())))
+    #     elif command[0] == "symmetric_difference_update":
+    #        numbers.symmetric_difference_update(set(map(int,input().split())))
+    #     elif command[0] == "difference_update":
+    #        numbers.difference_update(set(map(int,input().split())))      
+    # print(sum(numbers))
+
+    # Triangle Quest
+    # for i in range(1,int(input())): 
+    #     print(int((i*(pow(10, i) - 1)) / 9 ))
+
+    # Captains Room
+    # k = int(input())
+    # room_numbers = list(map(int,input().split()))
+    # count_dict = {}
+    # for room_num in room_numbers:
+    #     count_dict[room_num] = count_dict.get(room_num,0)+1
+    # captains_room = next(key for key, value in count_dict.items() if value == 1)
+    # print(captains_room)
+
+    # Check Subset
+    # cases = int(input())
+    # answers = list()
+    # for i in range (cases):
+    #     a_length = int(input())
+    #     a = set(map(int,input().split()))
+    #     b_length = int(input())
+    #     b = set(map(int,input().split()))
+    #     answer = a.issubset(b)
+    #     answers.append(answer)
+    # for answer in answers:
+    #     print(''.join(str(answer)))
+
+    # Check strict superset
+    # A = set(map(int,input().split()))
+    # N = int(input())
+    # Answer = 'True'
+    # for i in range (N):
+    #     check = set(map(int,input().split()))
+    #     if (check.issubset(A)) !=  True:
+    #         Answer = 'False'
+    # print(Answer)
+
+    # Text Alignment
+    # thickness = int(input()) #This must be an odd number
+    # c = 'H'
+    # for i in range(thickness):
+    #     print((c*i).rjust(thickness-1)+c+(c*i).ljust(thickness-1))
+    # for i in range(thickness+1):  print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))
+    # for i in range((thickness+1)//2):
+    #     print((c*thickness*5).center(thickness*6))    
+    # for i in range(thickness+1): print((c*thickness).center(thickness*2)+(c*thickness).center(thickness*6))    
+    # for i in range(thickness):  print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
+
+    # Classes: Dealing with Complex Number -- very important
+    c = map(float, input().split())
+    d = map(float, input().split())
+    x = Complex(*c)
+    y = Complex(*d)
+    print(*map(str, [x+y, x-y, x*y, x/y, x.mod(), y.mod()]), sep='\n')
+
 
 
