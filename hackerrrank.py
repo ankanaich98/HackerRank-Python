@@ -156,6 +156,49 @@ class Complex(object):
             result = "%.2f-%.2fi" % (self.real, abs(self.imaginary))
         return result
 
+# Class 2 - Find the torsional Angle
+import math
+
+class Points(object):
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def __sub__(self, no):
+        return  Points((self.x-no.x), (self.y-no.y), (self.z-no.z))
+    
+    def dot(self, no):
+        return (self.x*no.x)+(self.y*no.y)+(self.z*no.z)
+    
+    def cross(self, no):
+        return Points((self.y*no.z-self.z*no.y), (self.z*no.x-self.x*no.z), (self.x*no.y-self.y*no.x))
+    
+    def absolute(self):
+        return pow((self.x ** 2 + self.y ** 2 + self.z ** 2), 0.5)
+
+# Map and lambda functions
+cube = lambda x: x**3
+
+def fibonacci(n):
+    List = [0, 1]
+    for i in range(2, n):
+        List.append(List[i-1] + List[i-2])
+        
+    return(List[0:n])
+
+# Re.split()
+regex_pattern = r"[.,]+"	
+
+# Validating email addresses with filter
+import re
+def fun(s):
+    a = re.match(r'[a-zA-Z0-9_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$', s)
+    return(a)
+
+def filter_mail(emails):
+    return list(filter(fun, emails))
+
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
     # print("Hello, World!") 
@@ -723,11 +766,89 @@ if __name__ == '__main__':
     # for i in range(thickness):  print(((c*(thickness-i-1)).rjust(thickness)+c+(c*(thickness-i-1)).ljust(thickness)).rjust(thickness*6))
 
     # Classes: Dealing with Complex Number -- very important
-    c = map(float, input().split())
-    d = map(float, input().split())
-    x = Complex(*c)
-    y = Complex(*d)
-    print(*map(str, [x+y, x-y, x*y, x/y, x.mod(), y.mod()]), sep='\n')
+    # c = map(float, input().split())
+    # d = map(float, input().split())
+    # x = Complex(*c)
+    # y = Complex(*d)
+    # print(*map(str, [x+y, x-y, x*y, x/y, x.mod(), y.mod()]), sep='\n')
 
+    # Class 2 - Find the torsional Angle
+    # points = list()
+    # for i in range(4):
+    #     a = list(map(float, input().split()))
+    #     points.append(a)
 
+    # a, b, c, d = Points(*points[0]), Points(*points[1]), Points(*points[2]), Points(*points[3])
+    # x = (b - a).cross(c - b)
+    # y = (c - b).cross(d - c)
+    # angle = math.acos(x.dot(y) / (x.absolute() * y.absolute()))
+
+    # print("%.2f" % math.degrees(angle))
+
+    # Zipped
+    # N, X = map(int, input().split()) 
+    # scores = []
+    # for i in range (int(X)):
+    #     scores.append(map(float,input().split()))
+    # for i in zip(*scores): 
+    #     print( sum(i)/len(i) )
+
+    # Input()
+    # x,y = map(int,input().split())
+    # func = input()
+    # z = eval(func)
+    # if (z == y):
+    #     print ("True")
+    # else:
+    #     print ("False")
+
+    # Python evaluation
+    # action = input()
+    # eval(action)
+
+    # Athlete Sort
+    # first_multiple_input = input().rstrip().split()
+    # n = int(first_multiple_input[0])
+    # m = int(first_multiple_input[1])
+    # arr = []
+    # for _ in range(n):
+    #     arr.append(list(map(int, input().rstrip().split())))
+    # k = int(input().strip())
+    # arr.sort(key=lambda x: x[k])
+    # for att_list in arr:
+    #     print(*att_list)
+
+    # Any or All
+    # N,numbers = int(input()),input().split()
+    # print(all([int(i)>0 for i in numbers]) and any([j == j[::-1] for j in numbers]))
+
+    # ginortS
+    # string = sorted(input())
+    # lower = list(filter(lambda x: x.islower(),string))
+    # upper = list(filter(lambda x: x.isupper(),string))
+    # odd = list(filter(lambda x: x.isdigit() and int(x)%2==1,string))
+    # even = list(filter(lambda x: x.isdigit() and int(x)%2==0,string))
+    # print(*(lower + upper + odd + even),sep='')
+
+    # Detect Floating Point Number
+    # import re
+    # for _ in range(int(input())):
+    #     print(re.search(r'^([-\+])?\d*\.\d+$', input()) is not None)
+
+    # Map and Lambda function
+    # n = int(input())
+    # print(list(map(cube, fibonacci(n))))
+
+    # # Re.split()
+    # import re
+    # print("\n".join(re.split(regex_pattern, input())))
+
+    # Validating email addresses with filter
+    n = int(input())
+    emails = []
+    for _ in range(n):
+        emails.append(input())
+    filtered_emails = filter_mail(emails)
+    filtered_emails.sort()
+    print(filtered_emails)
 
