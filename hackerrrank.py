@@ -6,198 +6,209 @@ import sys
 import textwrap
 
 # Write a Function
-def is_leap(year):
-    leap = False
+# def is_leap(year):
+#     leap = False
     
-    if (year % 400 == 0):
-        leap = True
-    elif(year % 100 !=0 and year % 4 ==0):
-        leap = True
-    return leap
+#     if (year % 400 == 0):
+#         leap = True
+#     elif(year % 100 !=0 and year % 4 ==0):
+#         leap = True
+#     return leap
 
 # sWAP cASE
-def swap_case(s):
-    string = ""
+# def swap_case(s):
+#     string = ""
 
-    for i in s:
-        if i.isupper() == True:
-            string+=(i.lower())
-        else:
+#     for i in s:
+#         if i.isupper() == True:
+#             string+=(i.lower())
+#         else:
 
-            string+=(i.upper())
+#             string+=(i.upper())
 
-    return string
+#     return string
 
 # String Split and Join
-def split_and_join(line):
-    line = line.split(' ')
-    line = '-'.join(line)
-    return line
+# def split_and_join(line):
+#     line = line.split(' ')
+#     line = '-'.join(line)
+#     return line
 
 # What's your Name
-def print_full_name(first, last):
-    print("Hello " + first + " " + last + "! You just delved into python.")
+# def print_full_name(first, last):
+#     print("Hello " + first + " " + last + "! You just delved into python.")
 
 # Mutations
-def mutate_string(string, position, character):
-    string =  list(string)
-    string [position] = character
-    string = ''.join(string)
-    return string
+# def mutate_string(string, position, character):
+#     string =  list(string)
+#     string [position] = character
+#     string = ''.join(string)
+#     return string
 
 # Find a String
-def count_substring(string, sub_string):
-    total = 0
+# def count_substring(string, sub_string):
+#     total = 0
 
-    for i in range (len(string)):
-        if string[i:len(string)].startswith(sub_string):
-            total +=1
-    return total
+#     for i in range (len(string)):
+#         if string[i:len(string)].startswith(sub_string):
+#             total +=1
+#     return total
 
 # Text Wrap
-def wrap(string, max_width):
-    return textwrap.fill(string, max_width)
+# def wrap(string, max_width):
+#     return textwrap.fill(string, max_width)
 
 # String Formatting
-def print_formatted(number):
-    width = len(bin(number)[2:])
-    for i in range (1, number+1):
-        deci = str(i)
-        octa = oct(i)[2:]
-        hexa = hex(i)[2:].upper()
-        bina = bin(i)[2:]
-        print(deci.rjust(width),octa.rjust(width),hexa.rjust(width),bina.rjust(width))
+# def print_formatted(number):
+#     width = len(bin(number)[2:])
+#     for i in range (1, number+1):
+#         deci = str(i)
+#         octa = oct(i)[2:]
+#         hexa = hex(i)[2:].upper()
+#         bina = bin(i)[2:]
+#         print(deci.rjust(width),octa.rjust(width),hexa.rjust(width),bina.rjust(width))
 
     # your code goes here
 
 # Capitalize!
-def solve(s):
-    s = s.split(' ')
-    answer = (i.capitalize() for i in s)
-    return ' '.join(answer)
+# def solve(s):
+#     s = s.split(' ')
+#     answer = (i.capitalize() for i in s)
+#     return ' '.join(answer)
 
 # Minion Game
-def minion_game(string):
-    n = len(string)
-    comb = ((n)*(n+1))/2
-    count_kevin = 0
-    count_stuart = 0
-    count_kevin = sum([len(string[i:]) for i in range(len(string)) if string[i] in "AEIOU"])
-    count_stuart = comb - count_kevin
+# def minion_game(string):
+#     n = len(string)
+#     comb = ((n)*(n+1))/2
+#     count_kevin = 0
+#     count_stuart = 0
+#     count_kevin = sum([len(string[i:]) for i in range(len(string)) if string[i] in "AEIOU"])
+#     count_stuart = comb - count_kevin
     
-    if count_stuart == count_kevin:
-        print("Draw")
-    elif count_stuart > count_kevin:
-        print("Stuart", int(count_stuart) )
-    else:
-        print("Kevin", int(count_kevin))
+#     if count_stuart == count_kevin:
+#         print("Draw")
+#     elif count_stuart > count_kevin:
+#         print("Stuart", int(count_stuart) )
+#     else:
+#         print("Kevin", int(count_kevin))
 
 # Merge the Tools
-from collections import OrderedDict
-def merge_the_tools(string, k):
-    i = 0
-    while i < len(string):
-        word1 = "".join(OrderedDict.fromkeys(string[i: i+k]))      
-        print(word1)
-        i = i + k
+# from collections import OrderedDict
+# def merge_the_tools(string, k):
+#     i = 0
+#     while i < len(string):
+#         word1 = "".join(OrderedDict.fromkeys(string[i: i+k]))      
+#         print(word1)
+#         i = i + k
 
 # Introduction to sets
-def average(array):
-    unique_numbers = set(array)
-    return (sum(unique_numbers)/len(unique_numbers))
+# def average(array):
+#     unique_numbers = set(array)
+#     return (sum(unique_numbers)/len(unique_numbers))
 
 # Time delta
-from datetime import datetime
-def time_delta(t1,t2):
-    format = '%a %d %b %Y %H:%M:%S %z'
-    t1 = datetime.strptime(t1, format)
-    t2 = datetime.strptime(t2, format)
-    return str(int(abs((t1-t2).total_seconds()))) 
+# from datetime import datetime
+# def time_delta(t1,t2):
+#     format = '%a %d %b %Y %H:%M:%S %z'
+#     t1 = datetime.strptime(t1, format)
+#     t2 = datetime.strptime(t2, format)
+#     return str(int(abs((t1-t2).total_seconds()))) 
 
 # Classes: Dealing with Complex Numbers
-import math
-class Complex(object):
-    def __init__(self, real, imaginary):
-        self.real = real
-        self.imaginary = imaginary
+# import math
+# class Complex(object):
+#     def __init__(self, real, imaginary):
+#         self.real = real
+#         self.imaginary = imaginary
         
-    def __add__(self, no):
-        return Complex((self.real+no.real), self.imaginary+no.imaginary)
-    def __sub__(self, no):
-        return Complex((self.real-no.real), (self.imaginary-no.imaginary))
-    def __mul__(self, no):
-        r = (self.real*no.real)-(self.imaginary*no.imaginary)
-        i = (self.real*no.imaginary+no.real*self.imaginary)
-        return Complex(r, i)
-    def __truediv__(self, no):
-        conjugate = Complex(no.real, (-no.imaginary))
-        num = self*conjugate
-        denom = no*conjugate
-        try:
-            return Complex((num.real/denom.real), (num.imaginary/denom.real))
-        except Exception as e:
-            print(e)
+#     def __add__(self, no):
+#         return Complex((self.real+no.real), self.imaginary+no.imaginary)
+#     def __sub__(self, no):
+#         return Complex((self.real-no.real), (self.imaginary-no.imaginary))
+#     def __mul__(self, no):
+#         r = (self.real*no.real)-(self.imaginary*no.imaginary)
+#         i = (self.real*no.imaginary+no.real*self.imaginary)
+#         return Complex(r, i)
+#     def __truediv__(self, no):
+#         conjugate = Complex(no.real, (-no.imaginary))
+#         num = self*conjugate
+#         denom = no*conjugate
+#         try:
+#             return Complex((num.real/denom.real), (num.imaginary/denom.real))
+#         except Exception as e:
+#             print(e)
 
-    def mod(self):
-        m = math.sqrt(self.real**2+self.imaginary**2)
-        return Complex(m, 0)
+#     def mod(self):
+#         m = math.sqrt(self.real**2+self.imaginary**2)
+#         return Complex(m, 0)
 
-    def __str__(self):
-        if self.imaginary == 0:
-            result = "%.2f+0.00i" % (self.real)
-        elif self.real == 0:
-            if self.imaginary >= 0:
-                result = "0.00+%.2fi" % (self.imaginary)
-            else:
-                result = "0.00-%.2fi" % (abs(self.imaginary))
-        elif self.imaginary > 0:
-            result = "%.2f+%.2fi" % (self.real, self.imaginary)
-        else:
-            result = "%.2f-%.2fi" % (self.real, abs(self.imaginary))
-        return result
+#     def __str__(self):
+#         if self.imaginary == 0:
+#             result = "%.2f+0.00i" % (self.real)
+#         elif self.real == 0:
+#             if self.imaginary >= 0:
+#                 result = "0.00+%.2fi" % (self.imaginary)
+#             else:
+#                 result = "0.00-%.2fi" % (abs(self.imaginary))
+#         elif self.imaginary > 0:
+#             result = "%.2f+%.2fi" % (self.real, self.imaginary)
+#         else:
+#             result = "%.2f-%.2fi" % (self.real, abs(self.imaginary))
+#         return result
 
 # Class 2 - Find the torsional Angle
-import math
+# import math
 
-class Points(object):
-    def __init__(self, x, y, z):
-        self.x = x
-        self.y = y
-        self.z = z
+# class Points(object):
+#     def __init__(self, x, y, z):
+#         self.x = x
+#         self.y = y
+#         self.z = z
 
-    def __sub__(self, no):
-        return  Points((self.x-no.x), (self.y-no.y), (self.z-no.z))
+#     def __sub__(self, no):
+#         return  Points((self.x-no.x), (self.y-no.y), (self.z-no.z))
     
-    def dot(self, no):
-        return (self.x*no.x)+(self.y*no.y)+(self.z*no.z)
+#     def dot(self, no):
+#         return (self.x*no.x)+(self.y*no.y)+(self.z*no.z)
     
-    def cross(self, no):
-        return Points((self.y*no.z-self.z*no.y), (self.z*no.x-self.x*no.z), (self.x*no.y-self.y*no.x))
+#     def cross(self, no):
+#         return Points((self.y*no.z-self.z*no.y), (self.z*no.x-self.x*no.z), (self.x*no.y-self.y*no.x))
     
-    def absolute(self):
-        return pow((self.x ** 2 + self.y ** 2 + self.z ** 2), 0.5)
+#     def absolute(self):
+#         return pow((self.x ** 2 + self.y ** 2 + self.z ** 2), 0.5)
 
 # Map and lambda functions
-cube = lambda x: x**3
+# cube = lambda x: x**3
 
-def fibonacci(n):
-    List = [0, 1]
-    for i in range(2, n):
-        List.append(List[i-1] + List[i-2])
+# def fibonacci(n):
+#     List = [0, 1]
+#     for i in range(2, n):
+#         List.append(List[i-1] + List[i-2])
         
-    return(List[0:n])
+#     return(List[0:n])
 
 # Re.split()
-regex_pattern = r"[.,]+"	
+# regex_pattern = r"[.,]+"	
 
 # Validating email addresses with filter
-import re
-def fun(s):
-    a = re.match(r'[a-zA-Z0-9_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$', s)
-    return(a)
+# import re
+# def fun(s):
+#     a = re.match(r'[a-zA-Z0-9_-]+@[a-zA-Z0-9]+\.[a-zA-Z]{1,3}$', s)
+#     return(a)
 
-def filter_mail(emails):
-    return list(filter(fun, emails))
+# def filter_mail(emails):
+#     return list(filter(fun, emails))
+
+# Reduce Function
+# from fractions import Fraction
+# from functools import reduce
+# import operator
+# def product(fracs):
+#     t = reduce(operator.mul,fracs)
+#     return t.numerator, t.denominator
+
+#  Validating Roman Numerals
+regex_pattern = r""	
 
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
@@ -844,11 +855,45 @@ if __name__ == '__main__':
     # print("\n".join(re.split(regex_pattern, input())))
 
     # Validating email addresses with filter
-    n = int(input())
-    emails = []
-    for _ in range(n):
-        emails.append(input())
-    filtered_emails = filter_mail(emails)
-    filtered_emails.sort()
-    print(filtered_emails)
+    # n = int(input())
+    # emails = []
+    # for _ in range(n):
+    #     emails.append(input())
+    # filtered_emails = filter_mail(emails)
+    # filtered_emails.sort()
+    # print(filtered_emails)
+    
+    # Group(), Groups() & Groupdict()
+    # import re
+    # S = input()
+    # answer = re.search(r'([a-zA-Z0-9])\1',S)
+    # print(answer.group(1) if answer else -1)
+
+    # Reduce Function
+    # fracs = []
+    # for _ in range(int(input())):
+    #     fracs.append(Fraction(*map(int, input().split())))
+    # result = product(fracs)
+    # print(*result)
+
+    # Re.findall() & Re.finditer()
+    # import re
+    # answer = re.findall(r"(?<=[^aeiou])([aeiou]{2,})(?=[^aeiou])", input(), re.IGNORECASE)
+    # if answer:
+    #     print(*answer, sep="\n")
+    # else:
+    #     print(-1)
+
+    # Re.start() & Re.end()
+    # import re
+    # S = input()
+    # k = input()
+    # answer = list(re.finditer(r'(?={})'.format(k), S))
+    # if answer:
+    #     print('\n'.join(str((match.start(),match.start() + len(k) - 1)) for match in answer))
+    # else:
+    #     print('(-1, -1)')
+    
+    # Validating Roman Numerals
+    print(str(bool(re.match(regex_pattern, input()))))
 
