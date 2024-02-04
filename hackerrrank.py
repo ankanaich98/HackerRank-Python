@@ -208,7 +208,17 @@ import textwrap
 #     return t.numerator, t.denominator
 
 #  Validating Roman Numerals
-regex_pattern = r""	
+# import re
+# digits = '(V?[I]{0,3}|I[VX])'
+# tens = '(L?[X]{0,3}|X[LC])'
+# hundreds = '(D?[C]{0,3}|C[DM])'
+# thousands = 'M{0,3}'
+# regex_pattern = thousands + hundreds + tens + digits +'$'
+
+# Arrays
+# import numpy 
+# def arrays(arr):
+#     return numpy.flipud(numpy.array(arr, float))
 
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
@@ -895,5 +905,70 @@ if __name__ == '__main__':
     #     print('(-1, -1)')
     
     # Validating Roman Numerals
-    print(str(bool(re.match(regex_pattern, input()))))
+    # print(str(bool(re.match(regex_pattern, input()))))
 
+    # Validating Phone Numbers
+    # import re
+    # cases = int(input())
+    # answers = list()
+    # pattern = re.compile(r'^[789]\d{9}$')
+    # for i in range (cases):
+    #     number = input()
+    #     if pattern.match(number):
+    #         answers.append("YES")
+    #     else:
+    #         answers.append("NO")
+    # for answer in answers:
+    #     print(answer)
+    
+    # Validating and Parsing Email Addresses
+    # import email.utils
+    # import re
+    # cases = int(input())
+    # for i in range (cases):
+    #     string = input()
+    #     parsed = email.utils.parseaddr(string)
+    #     if parsed[1] and re.match(r'^[a-z][\w\-\.]+@[a-z]+\.[a-z]{1,3}$',parsed[1]):
+    #         print (email.utils.formataddr((parsed[0],parsed[1])))
+
+    # Hex Color Code
+    # import re
+    # for i in range(int(input())): 
+    #     match = re.findall(r"(\#[a-f0-9]{3,6})[\;\,\)]{1}", input(), re.I) 
+    #     if match:
+    #         for j in list(match):
+    #             print(j)
+
+    # Arrays
+    # arr = input().strip().split(' ')
+    # result = arrays(arr)
+    # print(result)
+
+    # Sum and Prod
+    # import numpy
+    # N,M = map(int,input().split())
+    # my_array = []
+    # for i in range (N):
+    #     row = list(map(int,input().split()))
+    #     my_array.append(row)
+    # np_array = numpy.array(my_array)
+    # added_array = numpy.sum(my_array, axis = 0)
+    # print (numpy.prod(added_array, axis = 0))  
+
+    # Array Mathematics
+    # import numpy
+    # N,M = map(int,input().split())
+    # A, B = (numpy.array([input().split() for _ in range(N)], dtype=int) for _ in range(2))
+    # print(A + B, A - B, A * B, A // B, A % B, A ** B, sep='\n')
+
+    # Zeros and Ones
+    # import numpy
+    # dimensions = input().split()
+    # dimensions = [int(i) for i in dimensions]
+    # print(numpy.zeros(tuple(dimensions),dtype = numpy.int))
+    # print(numpy.ones(tuple(dimensions),dtype = numpy.int))
+
+    # Shape and Reshape
+    import numpy
+    my_array = numpy.array([input().split()],dtype=int)
+    print (numpy.reshape(my_array,(3,3)))
