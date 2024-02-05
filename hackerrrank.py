@@ -969,6 +969,97 @@ if __name__ == '__main__':
     # print(numpy.ones(tuple(dimensions),dtype = numpy.int))
 
     # Shape and Reshape
+    # import numpy
+    # my_array = numpy.array([input().split()],dtype=int)
+    # print (numpy.reshape(my_array,(3,3)))
+
+    # Concatenate
+    # import numpy
+    # N,M,P = map(int,input().split())
+    # arr1 = []
+    # arr2 = []
+    # for i in range (N):
+    #     arr1.append(list(map(int,input().split())))
+    # for i in range (M):
+    #     arr2.append(list(map(int,input().split())))
+    # print (numpy.concatenate((arr1, arr2), axis = 1))
+
+    # Eye and Identity
+    # import numpy
+    # numpy.set_printoptions(sign=' ')
+    # N,M = map(int,input().split())
+    # print(numpy.eye(N,M))
+
+    # Min and Max
+    # import numpy
+    # N,M = map(int,input().split())
+    # arr = []
+    # for i in range (N):
+    #     arr.append(list(map(int,input().split())))
+    # print(max(numpy.min(arr,axis=1)))
+
+    # Floor, Ceil and Rint
+    # import numpy
+    # numpy.set_printoptions(sign=' ')
+    # array = list(map(float,input().split()))
+    # print (numpy.floor(array)) 
+    # print (numpy.ceil(array)) 
+    # print (numpy.rint(array)) 
+
+    # Transpose and Flatten
+    # import numpy
+    # N,M = map(int,input().split())
+    # arr = []
+    # for i in range (N):
+    #     arr.append(list(map(int,input().split())))
+    # print(numpy.transpose(arr))
+    # arr_np = numpy.array(arr)
+    # print(arr_np.flatten())
+
+    # Mean Var and Std
+    # import numpy
+    # N,M = map(int,input().split())
+    # arr = []
+    # for i in range (N):
+    #     arr.append(list(map(int,input().split())))
+    # print (numpy.mean(arr, axis = 1))   
+    # print (numpy.var(arr, axis = 0)) 
+    # print (round(numpy.std(arr, axis = None),11))
+
+    # Dot and Cross
+    # import numpy
+    # N = int(input())
+    # A =[]
+    # B =[]
+    # for i in range (N):
+    #     A.append(list(map(int,input().split())))
+    # for i in range (N):
+    #     B.append(list(map(int,input().split())))
+    # A_np = numpy.array(A)
+    # B_np = numpy.array(B)
+    # print(numpy.dot(A_np,B_np))
+
+    # Inner and Outer
+    # import numpy
+    # A =[]
+    # B =[]
+    # A.append(list(map(int,input().split())))
+    # B.append(list(map(int,input().split())))
+    # for answer in numpy.inner(A,B):
+    #     print(answer[0])
+    # print(numpy.outer(A,B))
+
+    # Polynomials
+    # import numpy
+    # poly= list(map(float,input().split()))
+    # val=float(input())
+    # print (numpy.polyval(poly,val))
+
+    # Linear Algebra
     import numpy
-    my_array = numpy.array([input().split()],dtype=int)
-    print (numpy.reshape(my_array,(3,3)))
+    N = int(input())
+    A =[]
+    for i in range (N):
+        A.append(list(map(float,input().split())))
+    print (round(numpy.linalg.det(A),2))
+
