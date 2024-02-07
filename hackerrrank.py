@@ -220,6 +220,16 @@ import textwrap
 # def arrays(arr):
 #     return numpy.flipud(numpy.array(arr, float))
 
+# Standardize Mobile Numbers Using Decorators
+# def wrapper(f):
+#     def fun(l):
+#         f(["+91 "+cn[-10:-5]+" "+cn[-5:] for cn in l])
+#     return fun
+
+# @wrapper
+# def sort_phone(l):
+#     print(*sorted(l), sep='\n')
+
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
     # print("Hello, World!") 
@@ -1056,10 +1066,43 @@ if __name__ == '__main__':
     # print (numpy.polyval(poly,val))
 
     # Linear Algebra
-    import numpy
-    N = int(input())
-    A =[]
-    for i in range (N):
-        A.append(list(map(float,input().split())))
-    print (round(numpy.linalg.det(A),2))
+    # import numpy
+    # N = int(input())
+    # A =[]
+    # for i in range (N):
+    #     A.append(list(map(float,input().split())))
+    # print (round(numpy.linalg.det(A),2))
 
+    # Validating UID
+    # import re
+    # cases = int(input())
+    # answers = []
+    # for i in range (cases):
+    #     uid = input()
+    #     if len(re.findall(r"[A-Z]", uid)) < 2 or \
+    #         len(re.findall(r"[0-9]", uid)) < 3 or \
+    #         not re.match(r"[A-Za-z0-9]{10}$", uid) or \
+    #         len(set(uid)) != len(uid):
+    #         answers.append("Invalid")
+    #     else :
+    #         answers.append("Valid")
+    # for answer in answers:
+    #     print(answer)
+
+    # Standardize Mobile Number Using Decorators
+    # l = [input() for _ in range(int(input()))]
+    # sort_phone(l) 
+
+    # Matrix Script
+    import numpy
+    n,m =map(int,(input().split()))
+    a,b = [],""
+    for _ in range(n):
+        a.append(input())
+    # Given rank 1 array
+    rank_1_array = numpy.array(a)
+    # Split each string into individual characters
+    split_array = numpy.array([list(s) for s in rank_1_array])
+
+    # Reshape the split array into a 2D array with 2 rows and 3 columns
+    array_2d = split_array.reshape(2, 3)
