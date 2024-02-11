@@ -1093,16 +1093,16 @@ if __name__ == '__main__':
     # l = [input() for _ in range(int(input()))]
     # sort_phone(l) 
 
-    # Matrix Script
-    import numpy
-    n,m =map(int,(input().split()))
-    a,b = [],""
-    for _ in range(n):
-        a.append(input())
-    # Given rank 1 array
-    rank_1_array = numpy.array(a)
-    # Split each string into individual characters
-    split_array = numpy.array([list(s) for s in rank_1_array])
-
-    # Reshape the split array into a 2D array with 2 rows and 3 columns
-    array_2d = split_array.reshape(2, 3)
+    # Default Arguments
+    def print_from_stream(stream_name, n):
+        if stream_name == 'even':
+            for i in range (n):
+                print(i*2)
+        elif stream_name == 'odd':
+            for i in range (n):
+                print(i*2+1)
+    times = int(input())
+    for i in range (times):
+        name,number = input().split()
+        number = int(number)
+        print_from_stream(name,number)
