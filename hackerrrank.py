@@ -230,6 +230,31 @@ import textwrap
 # def sort_phone(l):
 #     print(*sorted(l), sep='\n')
 
+# Alphabet Rangoli
+# def print_rangoli(size):
+#     alpha = "abcdefghijklmnopqrstuvwxyz"
+#     data = [alpha[i] for i in range(size)]
+#     items = list(range(size))
+#     items = items[:-1]+items[::-1]
+#     for i in items:
+#         temp = data[-(i+1):]
+#         # print(temp)
+#         row = temp[::-1]+temp[1:]
+#         # print(row)
+#         print("-".join(row).center(size*4-3, "-"))
+
+# Decorators 2 - Name Directory
+# import operator
+
+# def person_lister(f):
+#     def inner(people):
+#         return [f(x) for x in sorted(people, key=lambda p: int(p[2]))]
+#     return inner
+
+# @person_lister
+# def name_format(person):
+#     return ("Mr. " if person[3] == "M" else "Ms. ") + person[0] + " " + person[1]
+
 if __name__ == '__main__':
     # Say "Hello, World!" with Python
     # print("Hello, World!") 
@@ -1094,15 +1119,89 @@ if __name__ == '__main__':
     # sort_phone(l) 
 
     # Default Arguments
-    def print_from_stream(stream_name, n):
-        if stream_name == 'even':
-            for i in range (n):
-                print(i*2)
-        elif stream_name == 'odd':
-            for i in range (n):
-                print(i*2+1)
-    times = int(input())
-    for i in range (times):
-        name,number = input().split()
-        number = int(number)
-        print_from_stream(name,number)
+    # def print_from_stream(stream_name, n):
+    #     if stream_name == 'even':
+    #         for i in range (n):
+    #             print(i*2)
+    #     elif stream_name == 'odd':
+    #         for i in range (n):
+    #             print(i*2+1)
+    # times = int(input())
+    # for i in range (times):
+    #     name,number = input().split()
+    #     number = int(number)
+    #     print_from_stream(name,number)
+
+    # Alphabet Rangoli
+    # n = int(input())
+    # print_rangoli(n)
+
+    # Regex Substitution 
+    # import re 
+    # N = int(input())
+    # for _ in range(N):
+    #     str_ = input()
+    #     str_ = re.sub(r"(?<= )(&&)(?= )", "and", str_)
+    #     print(re.sub(r"(?<= )(\|\|)(?= )", "or", str_))
+
+    # Words Score 
+    # Word_number = int(input())
+    # Words = input().split()
+    # vowels = 'aeiouy'
+    # score = 0
+    # for word in Words:
+    #     count = 0
+    #     for char in word:
+    #         if char in vowels:
+    #             count+=1
+    #     print(count)
+    #     if count % 2 == 1:
+    #         score +=1
+    #     elif count % 2 == 0:
+    #         score+=2
+    # print(score)
+
+    # Decorators 2 - Name Directory
+    # people = [input().split() for i in range(int(input()))]
+    # print(*name_format(people), sep='\n')
+    
+    # Validating Credit Card Numbers
+    # import re 
+    # N = int(input())
+    # valid_card_pattern = re.compile(r'^(?!.*(\d)(-*\1){3,})([4-6][0-9]{3}-?([0-9]{4}-?){3})$')
+    # for num in range(N):
+    #     case = input()
+    #     if valid_card_pattern.match(case):
+    #         print('Valid')
+    #     else:
+    #         print('Invalid')
+    
+    # Validating Postal Codes
+    # import re
+    # regex_integer_in_range = r"^[1-9]\d{3,5}$"	# Do not delete 'r'.
+    # regex_alternating_repetitive_digit_pair = r"(\d)(?=\d\1)"	# Do not delete 'r'.
+
+
+        
+    # P = input()
+
+    # print (bool(re.match(regex_integer_in_range, P)) 
+    # and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
+
+    # Matrix Script
+    first_multiple_input = input().rstrip().split()
+
+    n = int(first_multiple_input[0])
+
+    m = int(first_multiple_input[1])
+
+    matrix = []
+
+    for _ in range(n):
+        matrix_item = input()
+        matrix.append(matrix_item)
+
+    matrix = list(zip(*matrix))
+    encoded = ''.join([''.join(m) for m in matrix])
+    decoded = re.sub(r'\b\W+\b', ' ', encoded)
+    print(decoded)
