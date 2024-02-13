@@ -1189,19 +1189,108 @@ if __name__ == '__main__':
     # and len(re.findall(regex_alternating_repetitive_digit_pair, P)) < 2)
 
     # Matrix Script
-    first_multiple_input = input().rstrip().split()
+    # first_multiple_input = input().rstrip().split()
 
-    n = int(first_multiple_input[0])
+    # n = int(first_multiple_input[0])
 
-    m = int(first_multiple_input[1])
+    # m = int(first_multiple_input[1])
 
-    matrix = []
+    # matrix = []
 
-    for _ in range(n):
-        matrix_item = input()
-        matrix.append(matrix_item)
+    # for _ in range(n):
+    #     matrix_item = input()
+    #     matrix.append(matrix_item)
 
-    matrix = list(zip(*matrix))
-    encoded = ''.join([''.join(m) for m in matrix])
-    decoded = re.sub(r'\b\W+\b', ' ', encoded)
-    print(decoded)
+    # matrix = list(zip(*matrix))
+    # encoded = ''.join([''.join(m) for m in matrix])
+    # decoded = re.sub(r'\b\W+\b', ' ', encoded)
+    # print(decoded)
+
+    # Html parser - Part 1
+    # from html.parser import HTMLParser
+    # N = int(input())
+    # class MyHTMLParser(HTMLParser): # Subclass
+        
+    #     def handle_starttag(self, tag, attributes):
+    #         print('Start :', tag)
+    #         for element in attributes:
+    #             print('->', element[0], '>', element[1])
+                
+    #     def handle_endtag(self, tag):
+    #         print('End   :', tag)
+            
+    #     def handle_startendtag(self, tag, attributes):
+    #         print('Empty :', tag)
+    #         for element in attributes:
+    #             print('->', element[0], '>', element[1])            
+    # Parser = MyHTMLParser()
+    # Parser.feed(''.join([input().strip() for i in range(0, N)]))
+
+    # Html parser - Part 2
+    # from html.parser import HTMLParser
+    # N = int(input())
+    # class MyHTMLParser(HTMLParser): # Subclass
+        
+    #     def handle_comment(self, comment):
+    #         print('>>> Multi-line Comment') if (comment.find('\n') != -1) else print('>>> Single-line Comment')
+    #         print(comment)       
+    #     def handle_data(self, data):
+    #         if data is '\n':
+    #             return
+    #         print('>>> Data')
+    #         print(data)
+                      
+    # html = ""       
+    # for i in range(N):
+    #     html += input().rstrip()
+    #     html += '\n'
+        
+    # parser = MyHTMLParser()
+    # parser.feed(html)
+    # parser.close()
+
+    # Detect HTML Tags, Attributes and Attribute Values
+    # from html.parser import HTMLParser
+
+    # N = int(input())
+    # class MyHTMLParser(HTMLParser):
+    #     def handle_starttag(self, tag, attributes):
+    #         print(tag)
+    #         [print('-> {} > {}'.format(*attribute)) for attribute in attributes]
+        
+    # html = '\n'.join([input() for x in range(0, N)])  
+    # parser = MyHTMLParser()
+    # parser.feed(html)
+    # parser.close()
+
+    # # XML 1 - Find the Score
+    # import sys
+    # import xml.etree.ElementTree as etree
+
+    # def get_attr_number(node):
+    #     return sum([len(element.items()) for element in tree.iter()])
+
+    # sys.stdin.readline()
+    # xml = sys.stdin.read()
+    # tree = etree.ElementTree(etree.fromstring(xml))
+    # root = tree.getroot()
+    # print(get_attr_number(root))
+
+    # XML2 - Find the Maximum Depth
+    import xml.etree.ElementTree as etree
+
+    maxdepth = 0
+    def depth(elem, level):
+        global maxdepth
+        level += 1
+        [depth(element, level) for element in elem.getchildren()]
+        maxdepth = level if level > maxdepth else maxdepth
+        return maxdepth
+
+    n = int(input())
+    xml = ""
+    for i in range(n):
+        xml =  xml + input() + "\n"
+    tree = etree.ElementTree(etree.fromstring(xml))
+    depth(tree.getroot(), -1)
+    print(maxdepth)
